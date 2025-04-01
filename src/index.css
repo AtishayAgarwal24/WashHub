@@ -1,0 +1,121 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 217 22% 45%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 48%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv03" on;
+  }
+
+  /* Premium glass cards effect */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+
+  /* Smooth animations for common interactions */
+  .smooth-transition {
+    @apply transition duration-200 ease-in-out;
+  }
+
+  /* Premium buttons with hover effect */
+  .btn-premium {
+    @apply relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 
+           transition-all duration-300 ease-out flex items-center justify-center
+           shadow-sm hover:shadow-md active:scale-[0.98];
+  }
+
+  /* Page transitions */
+  .page-enter {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+  
+  .page-enter-active {
+    @apply opacity-100;
+  }
+  
+  .page-exit {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-exit-active {
+    @apply opacity-0;
+  }
+}
+
+/* Typography styles */
+@layer components {
+  .h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+  }
+  
+  .h2 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+  
+  .h3 {
+    @apply text-2xl font-semibold;
+  }
+  
+  .h4 {
+    @apply text-xl font-semibold;
+  }
+  
+  .p-lead {
+    @apply text-lg text-muted-foreground;
+  }
+  
+  .caption {
+    @apply text-sm text-muted-foreground;
+  }
+  
+  .chip {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
